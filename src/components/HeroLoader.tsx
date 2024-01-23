@@ -1,6 +1,7 @@
 import "./HeroLoader.scss";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
+import { useGSAP } from "@gsap/react";
 // Components
 import LoadingBars from "./LoadingBars";
 
@@ -33,17 +34,25 @@ const HeroLoader = () => {
     };
 
     startLoader();
-    gsap.to(".hero__counter", { duration: 0.25, delay: 3.5, opacity: 0 });
-    gsap.to(".hero__bar", {
-      duration: 1.5,
-      delay: 3.5,
-      height: 0,
-      stagger: {
-        amount: 0.5,
-      },
-      ease: "power4.inOut",
-    });
   }, []);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".hero__counter", { duration: 0.25, delay: 3.5, opacity: 0 });
+    tl.to(
+      ".hero__bar",
+      {
+        duration: 1.5,
+        height: 0,
+        stagger: {
+          amount: 0.5,
+        },
+        ease: "power4.inOut",
+      },
+      "<"
+    );
+    tl.set(".hero__overlay", { display: "none" });
+  });
 
   return (
     <section className="hero__overlay">
