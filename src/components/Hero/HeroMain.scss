@@ -10,10 +10,11 @@
 
   &__bottom-line {
     align-self: center;
-    margin-top: 15rem;
     height: 2px;
     width: 70%;
-    background-color: var(--color-primary-200);
+    flex-basis: 20rem;
+    border-bottom: 2px solid var(--color-primary-200);
+    position: relative;
   }
 
   &__breadcrumb {
@@ -23,6 +24,7 @@
     padding: 1rem 1.6rem;
     font-weight: 700;
     border-radius: 40px;
+    position: absolute;
 
     &--react {
       background-color: #bfdbfe;
@@ -47,6 +49,31 @@
     &--rest {
       background-color: #fed7aa;
       color: #ea580c;
+    }
+
+    &--c {
+      background-color: #bae6fd;
+      color: #0284c7;
+    }
+
+    &--gsap {
+      background-color: #d9f99d;
+      color: #65a30d;
+    }
+
+    &--express {
+      background-color: #f4f4f5;
+      color: #18181b;
+    }
+
+    &--next {
+      background-color: #18181b;
+      color: #fafafa;
+    }
+
+    &--ts {
+      background-color: #bfdbfe;
+      color: #2563eb;
     }
   }
 
