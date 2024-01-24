@@ -1,115 +1,117 @@
 import "./HeroNav.scss";
 import gsap from "gsap";
 import CSSRulePlugin from "gsap/CSSRulePlugin";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 const HeroNav = () => {
   const menuRef = useRef<HTMLDivElement>(null);
-  gsap.registerPlugin(CSSRulePlugin);
+  const scope = useRef<HTMLDivElement>(null);
 
-  const onClickHandler = () => {
-    let path = document.querySelector("path");
-    let spanBefore = CSSRulePlugin.getRule(".hamburger span:before");
-    const tl = gsap.timeline({ paused: true });
+  gsap.registerPlugin(CSSRulePlugin);
+  let path: any;
+  let spanBefore: any;
+
+  useLayoutEffect(() => {
+    spanBefore = CSSRulePlugin.getRule(".hamburger span:before");
     gsap.set(spanBefore, { background: "#000" });
     gsap.set(menuRef.current, { visibility: "hidden" });
+    path = document.querySelector("path");
+  }, []);
 
-    function revealMenu() {
-      revealMenuItems();
+  const onClickHandler = () => {
+    const tl = gsap.timeline();
 
-      const hamburger = document.querySelector(".hamburger");
+    // function revealMenu() {
+    //   revealMenuItems();
 
-      hamburger?.classList.toggle("active");
-      tl.reversed(!tl.reversed());
-    }
+    //   // const hamburger = document.querySelector(".hamburger");
 
-    revealMenu();
+    //   // hamburger?.classList.toggle("active");
+    //   // tl.reversed(!tl.reversed());
+    // }
 
-    function revealMenuItems() {
-      const start = "M0 5025175 272 500 272s500 230 500 230V0H0Z";
-      const end = "M0,1005S175,995,500,995s500,5,500,5V0H0z";
+    const start = "M0 5025175 272 500 272s500 230 500 230V0H0Z";
+    const end = "M0,1005S175,995,500,995s500,5,500,5V0H0z";
 
-      const power2 = "power2.inOut";
-      const power4 = "power4.inOut";
+    const power2 = "power2.inOut";
+    const power4 = "power4.inOut";
 
-      tl.to(".hamburger", {
-        delay: 1.25,
-        marginTop: "-5px",
+    tl.to(".hamburger", {
+      marginTop: "-5px",
+      x: -40,
+      y: 40,
+      ease: power4,
+    });
+
+    // Menu
+    tl.to(
+      ".hamburger span",
+      {
+        backgroundColor: "#e2e2dc",
+        ease: power2,
+      },
+      "<"
+    );
+
+    tl.to(
+      spanBefore,
+      {
+        backgroundColor: "#e2e2dc",
+        ease: power2,
+      },
+      "<"
+    );
+
+    //Toggle btn
+    tl.to(
+      ".btn .btn-outline",
+      {
         x: -40,
         y: 40,
+        width: "14rem",
+        height: "14rem",
+        border: "1px solid #e2e2dc",
         ease: power4,
-      });
+      },
+      "<"
+    );
 
-      // Menu
-      tl.to(
-        ".hamburger span",
-        {
-          backgroundColor: "#e2e2dc",
-          ease: power2,
+    // Path
+    tl.to(
+      path,
+      {
+        attr: {
+          d: start,
         },
-        "<"
-      );
+        ease: power2,
+      },
+      "<"
+    ).to(
+      path,
+      {
+        attr: {
+          d: end,
+        },
+        ease: power2,
+      },
+      "-0.5"
+    );
 
-      tl.to(
-        spanBefore,
-        {
-          backgroundColor: "#e2e2dc",
-          ease: power2,
-        },
-        "<"
-      );
+    //Menu
+    tl.to(".menu", { visibility: "visible" }, "-=0.5");
 
-      // Toggle btn
-      tl.to(
-        ".btn .btn-outline",
-        {
-          x: -40,
-          y: 40,
-          width: "14rem",
-          height: "14rem",
-          border: "1px solid #e2e2dc",
-          ease: power4,
+    // Menu items
+    tl.to(
+      ".menu-item > a",
+      {
+        top: 0,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.5,
         },
-        "<"
-      );
-
-      // Path
-      tl.to(
-        path,
-        {
-          attr: {
-            d: start,
-          },
-          ease: power2,
-        },
-        "<"
-      ).to(
-        path,
-        {
-          attr: {
-            d: end,
-          },
-          ease: power2,
-        },
-        "-0.5"
-      );
-
-      //Menu
-      tl.to(".menu", { visibility: "visible" }, "-=0.5");
-
-      // Menu items
-      tl.to(
-        ".menu-item > a",
-        {
-          top: 0,
-          ease: "power3.out",
-          stagger: {
-            amount: 0.5,
-          },
-        },
-        "-=1"
-      );
-    }
+      },
+      "-=1"
+    );
   };
 
   return (

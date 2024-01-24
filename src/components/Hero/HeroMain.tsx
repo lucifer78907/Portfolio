@@ -1,0 +1,14 @@
+import "./HeroMain.scss";
+
+const HeroMain = () => {
+  return (
+    <section className="hero__main">
+      <h1 className="heading__primary">
+        <span className="heading__primary--hindi">नमस्ते</span>I am Rudra
+        <span className="heading__primary--sub">A developer</span>
+      </h1>
+    </section>
+  );
+};
+
+export default HeroMain;
