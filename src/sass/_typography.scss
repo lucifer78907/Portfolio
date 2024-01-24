@@ -12,5 +12,10 @@
     font-size: 10rem;
     font-family: var(--font-hindi);
     font-weight: 700;
+    text-shadow: -4px 1px 0px #fcd34d, -8px 2px 0px #ef4444;
+  }
+
+  &--sub {
+    font-size: 12rem;
   }
 }

@@ -7,4 +7,58 @@
     flex-direction: column;
     justify-content: start;
   }
+
+  &__bottom-line {
+    align-self: center;
+    margin-top: 15rem;
+    height: 2px;
+    width: 70%;
+    background-color: var(--color-primary-200);
+  }
+
+  &__breadcrumb {
+    font-size: 1.6rem;
+    background-color: red;
+    color: #fafafa;
+    padding: 1rem 1.6rem;
+    font-weight: 700;
+    border-radius: 40px;
+
+    &--react {
+      background-color: #bfdbfe;
+      color: #2563eb;
+    }
+
+    &--node {
+      background-color: #bbf7d0;
+      color: #15803d;
+    }
+
+    &--mongodb {
+      background-color: #a7f3d0;
+      color: #047857;
+    }
+
+    &--design {
+      background-color: #fecaca;
+      color: #dc2626;
+    }
+
+    &--rest {
+      background-color: #fed7aa;
+      color: #ea580c;
+    }
+  }
+
+  &__circle {
+    position: absolute;
+    min-width: 20rem;
+    min-height: 20rem;
+    border-radius: 50%;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-800),
+      var(--color-primary-400)
+    );
+  }
 }
