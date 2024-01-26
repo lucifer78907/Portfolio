@@ -1,7 +1,7 @@
 import "./HeroMain.scss";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { Flip } from "gsap/Flip";
 
 interface BreadCrumbs {
@@ -22,6 +22,14 @@ const HeroMain = () => {
     });
 
     gsap.set(".hero__breadcrumb", { autoAlpha: 0 }); //hiding them
+  });
+
+  useEffect(() => {
+    for (let i = 0; i < allBreadCrumbs.length + 1; i++) {
+      setTimeout(() => {
+        showBreadCrumbs();
+      }, i * 300);
+    }
   });
 
   const showBreadCrumbs = () => {
@@ -69,12 +77,12 @@ const HeroMain = () => {
     });
 
     Flip.from(state, {
-      duration: 1,
+      duration: 2,
       ease: "power4.in",
       onComplete: speardBreadCrumbs,
       stagger: {
-        amount: 0.5,
-        from: "start",
+        each: 0.05,
+        from: "random",
       },
     });
   };
@@ -89,11 +97,9 @@ const HeroMain = () => {
     });
 
     Flip.from(state, {
+      delay: 1,
       duration: 1,
-      ease: "power4.in",
-      onComplete: () => {
-        gsap.to(".hero__bottom-line", { border: "none" });
-      },
+      ease: "power4.out",
     });
   };
 
@@ -101,9 +107,7 @@ const HeroMain = () => {
     <section className="hero__main">
       <h1 className="heading__primary">
         <span className="heading__primary--hindi">नमस्ते</span>I am Rudra
-        <span className="heading__primary--sub" onClick={showBreadCrumbs}>
-          A developer
-        </span>
+        <span className="heading__primary--sub">A developer</span>
       </h1>
       <span className="hero__bottom-line">
         <span className="hero__breadcrumb hero__breadcrumb--react">React</span>
