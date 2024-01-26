@@ -1,6 +1,4 @@
 import { IconType } from "react-icons";
-import gsap from "gsap";
-import { useLayoutEffect } from "react";
 
 interface BreadCrumbData {
   breadCrumbClassName: string;

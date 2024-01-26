@@ -1,5 +1,6 @@
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 // Components
 import HeroLoader from "../components/Hero/HeroLoader";
 import HeroNav from "../components/Hero/HeroNav";
@@ -11,9 +12,35 @@ const HomePage = () => {
   const options = {
     smooth: true,
   };
+  // to remove legacy cursor
+  useEffect(() => {
+    document.documentElement.style.cursor = "none";
+  }, []);
+
+  // to add custom cursor
+  useEffect(() => {
+    const cursor = document.querySelector(".cursor") as HTMLDivElement;
+    const circle = document.querySelector(".circle") as HTMLDivElement;
+    const circle2 = document.querySelector(".smaller-circle") as HTMLDivElement;
+
+    const moveCursor = (e: MouseEvent) => {
+      const mouseY = e.clientY;
+      const mouseX = e.clientX;
+      const tl = gsap.timeline();
+
+      gsap.to(circle, { x: mouseX, y: mouseY });
+      gsap.to(circle2, { x: mouseX + 10, y: mouseY + 10, delay: 0.1 });
+      gsap.to(cursor, { x: mouseX + 25, y: mouseY + 25, delay: 0.2 });
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+  });
 
   return (
     <LocomotiveScrollProvider containerRef={sectionRef} options={options}>
+      <div className="cursor"></div>
+      <div className="circle"></div>
+      <div className="smaller-circle"></div>
       <main data-scroll-container ref={sectionRef}>
         {/* <HeroLoader /> */}
         {/* <HeroNav /> */}

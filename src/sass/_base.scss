@@ -23,6 +23,37 @@ body {
   font-family: var(--font-secondary);
 }
 
+::selection {
+  cursor: none;
+}
+
+.cursor,
+.smaller-circle,
+.circle {
+  border-radius: 50%;
+  z-index: 99999;
+  position: absolute;
+  mix-blend-mode: multiply;
+}
+
+.cursor {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-primary-300);
+}
+
+.smaller-circle {
+  width: 45px;
+  height: 45px;
+  background-color: var(--color-primary-500);
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-primary-700);
+}
+
 // FONTS
 @font-face {
   font-family: "CarenaRegular";

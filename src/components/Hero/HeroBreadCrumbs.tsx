@@ -68,7 +68,7 @@ const HeroBreadCrumbs = () => {
       display: "flex",
       alignItems: "flex-end",
       justifyContent: "center",
-      gap: "1rem",
+      gap: "2rem",
     });
 
     gsap.set(".hero__breadcrumb", {

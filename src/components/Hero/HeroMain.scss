@@ -13,12 +13,12 @@
     height: 2px;
     width: 40%;
     flex-basis: 20rem;
-    border-bottom: 5px dotted var(--color-primary-200);
+    // border-bottom: 5px dotted var(--color-primary-200);
     position: relative;
   }
 
   &__breadcrumb {
-    font-size: 2rem;
+    font-size: 2.4rem;
     background-color: red;
     color: #fafafa;
     padding: 1rem 1.6rem;
@@ -26,8 +26,13 @@
     border-radius: 40px;
     position: absolute;
     box-shadow: var(--box-shadow-light);
-    cursor: pointer;
     user-select: none;
+    transition: color 200ms, background-color 200ms;
+
+    &:hover {
+      color: currentColor;
+      background-color: #fafafa;
+    }
 
     &--icon {
       position: absolute;
