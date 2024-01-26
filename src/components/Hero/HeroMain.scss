@@ -13,7 +13,7 @@
     height: 2px;
     width: 40%;
     flex-basis: 20rem;
-    border-bottom: 2px solid var(--color-primary-200);
+    border-bottom: 5px dotted var(--color-primary-200);
     position: relative;
   }
 
@@ -26,6 +26,17 @@
     border-radius: 40px;
     position: absolute;
     box-shadow: var(--box-shadow-light);
+    cursor: pointer;
+    user-select: none;
+
+    &--icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      visibility: hidden;
+    }
 
     &--react {
       background-color: #bfdbfe;
