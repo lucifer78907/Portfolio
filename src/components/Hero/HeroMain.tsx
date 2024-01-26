@@ -2,20 +2,16 @@ import "./HeroMain.scss";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useLayoutEffect } from "react";
+import { Flip } from "gsap/Flip";
 
 interface BreadCrumbs {
   element: any;
   isVisited: boolean;
 }
 
-function getRandomInt(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-}
-
 let i: number = 0;
 const HeroMain = () => {
+  gsap.registerPlugin(Flip);
   let allBreadCrumbs: BreadCrumbs[];
   const postionSet = new Set<number>();
 
@@ -29,27 +25,75 @@ const HeroMain = () => {
   });
 
   const showBreadCrumbs = () => {
-    if (i === allBreadCrumbs.length) return;
+    if (i > allBreadCrumbs.length) return;
+    if (i === allBreadCrumbs.length) {
+      alignBreadCrumbs();
+      i = i + 1;
+      return;
+    }
     // select a random element from allbreadcrumbs
     const { element: randomEle }: any = allBreadCrumbs[i];
     allBreadCrumbs[i].isVisited = true;
     i = i + 1;
 
     // to not have same position
-    let randomX = getRandomInt(0, 100);
-    while (postionSet.has(randomX)) randomX = getRandomInt(0, 100);
+    // let randomX = getRandomInt(0, 100);
+    let randomX: number = gsap.utils.random(10, 80, 7);
+    while (postionSet.has(randomX)) randomX = gsap.utils.random(10, 80, 7);
     postionSet.add(randomX);
-    const rotateRandom = getRandomInt(0, 60);
 
     // animation
     gsap.set(randomEle, { left: `${randomX}%` });
 
     gsap.to(randomEle, {
-      rotate: rotateRandom,
       autoAlpha: 1,
       bottom: 0,
       duration: 1,
-      ease: "linear",
+      ease: "bounce",
+    });
+  };
+
+  const alignBreadCrumbs = () => {
+    const state = Flip.getState(".hero__breadcrumb");
+
+    gsap.set(".hero__bottom-line", {
+      display: "flex",
+      alignItems: "flex-end",
+      justifyContent: "center",
+      gap: "1rem",
+    });
+
+    gsap.set(".hero__breadcrumb", {
+      left: "50%",
+      transform: "translateX(-50%)",
+    });
+
+    Flip.from(state, {
+      duration: 1,
+      ease: "power4.in",
+      onComplete: speardBreadCrumbs,
+      stagger: {
+        amount: 0.5,
+        from: "start",
+      },
+    });
+  };
+
+  const speardBreadCrumbs = () => {
+    const state = Flip.getState(".hero__breadcrumb");
+
+    gsap.set(".hero__breadcrumb", {
+      left: 0,
+      position: "relative",
+      transform: "translateX(0)",
+    });
+
+    Flip.from(state, {
+      duration: 1,
+      ease: "power4.in",
+      onComplete: () => {
+        gsap.to(".hero__bottom-line", { border: "none" });
+      },
     });
   };
 
@@ -70,9 +114,7 @@ const HeroMain = () => {
         <span className="hero__breadcrumb hero__breadcrumb--design">
           Design
         </span>
-        <span className="hero__breadcrumb hero__breadcrumb--rest">
-          Rest API
-        </span>
+        <span className="hero__breadcrumb hero__breadcrumb--rest">REST</span>
         <span className="hero__breadcrumb hero__breadcrumb--c">C++</span>
         <span className="hero__breadcrumb hero__breadcrumb--gsap">GSAP</span>
         <span className="hero__breadcrumb hero__breadcrumb--express">
@@ -82,6 +124,7 @@ const HeroMain = () => {
         <span className="hero__breadcrumb hero__breadcrumb--ts">
           Typescirpt
         </span>
+        <span className="hero__breadcrumb hero__breadcrumb--lnx">Linux</span>
       </span>
       {/* <span className="hero__circle"></span> */}
     </section>
