@@ -3,7 +3,7 @@ const LoadingBars = () => {
   const bars: React.JSX.Element[] = [];
 
   for (let i = 0; i < total; i++) {
-    bars.push(<div className="hero__bar"></div>);
+    bars.push(<div key={i} className="hero__bar"></div>);
   }
 
   return <>{bars}</>;
