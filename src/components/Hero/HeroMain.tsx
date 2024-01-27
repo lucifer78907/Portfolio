@@ -8,7 +8,7 @@ const HeroMain = () => {
         <span className="heading__primary--hindi">नमस्ते</span>I am Rudra
         <span className="heading__primary--sub">A developer</span>
       </h1>
-      <HeroBreadCrumbs />
+      {/* <HeroBreadCrumbs /> */}
       {/* <span className="hero__circle"></span> */}
     </section>
   );

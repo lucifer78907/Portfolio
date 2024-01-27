@@ -14,7 +14,7 @@ const HomePage = () => {
   };
   // to remove legacy cursor
   useEffect(() => {
-    document.documentElement.style.cursor = "none";
+    // document.documentElement.style.cursor = "none";
   }, []);
 
   // to add custom cursor
@@ -43,7 +43,7 @@ const HomePage = () => {
       <div className="smaller-circle"></div>
       <main data-scroll-container ref={sectionRef}>
         {/* <HeroLoader /> */}
-        {/* <HeroNav /> */}
+        <HeroNav />
         <HeroMain />
       </main>
     </LocomotiveScrollProvider>

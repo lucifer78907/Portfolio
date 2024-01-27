@@ -28,6 +28,7 @@
     box-shadow: var(--box-shadow-light);
     user-select: none;
     transition: color 200ms, background-color 200ms;
+    flex: 1 0 auto;
 
     &:hover {
       color: currentColor;
