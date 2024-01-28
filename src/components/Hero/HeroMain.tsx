@@ -1,5 +1,5 @@
 import "./HeroMain.scss";
-import HeroBreadCrumbs from "./HeroBreadCrumbs";
+import HeroBreadCrumbs from "./BreadCrumb/HeroBreadCrumbs";
 
 const HeroMain = () => {
   return (

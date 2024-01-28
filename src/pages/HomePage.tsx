@@ -2,8 +2,8 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 // Components
-import HeroLoader from "../components/Hero/HeroLoader";
-import HeroNav from "../components/Hero/HeroNav";
+import HeroLoader from "../components/Hero/Loader/HeroLoader";
+import HeroNav from "../components/Hero/Navigation/HeroNav";
 import HeroMain from "../components/Hero/HeroMain";
 
 const HomePage = () => {

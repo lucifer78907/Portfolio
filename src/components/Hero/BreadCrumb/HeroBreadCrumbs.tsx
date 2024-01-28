@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
 import { Flip } from "gsap/Flip";
-import { breadCrumbData } from "../../data/breadCrumbData";
+import { breadCrumbData } from "../../../data/breadCrumbData";
 import BreadCrumb from "./BreadCrumb";
 
 interface BreadCrumbs {
