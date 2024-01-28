@@ -1,14 +1,17 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useState } from "react";
 import "./HeroNav.scss";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const colors = ["#047857", "#10b981", "#6ee7b7"];
-let isOpen: boolean = false;
-const tl = gsap.timeline();
+const tl = gsap.timeline({ paused: true });
 let allHeaderCircles: HTMLSpanElement[];
 let linkSpanParas: HTMLSpanElement | HTMLParagraphElement[];
 
 const HeroNav = () => {
+  const { contextSafe } = useGSAP();
+  const [isOpen, setIsOpen] = useState<boolean>();
+
   useLayoutEffect(() => {
     gsap.set(".header", { autoAlpha: 0 });
 
@@ -27,35 +30,38 @@ const HeroNav = () => {
     }
   }, []);
 
-  const openMenuHandler = () => {
+  useGSAP(() => {
+    for (const item of allHeaderCircles) {
+      tl.to(
+        item as HTMLSpanElement,
+        {
+          scale: 100,
+          duration: 0.5,
+          ease: "power1.in",
+        },
+        "-=0.2"
+      );
+    }
+    tl.to(".header", { autoAlpha: 1 });
+    tl.to(linkSpanParas, {
+      transform: "translateY(100%)",
+      ease: "linear",
+      duration: 1,
+    });
+    tl.progress(0);
+  });
+
+  const openMenuHandler = contextSafe(() => {
     // Opening circles
     if (!isOpen) {
-      isOpen = true;
       tl.play();
-      for (const item of allHeaderCircles) {
-        tl.to(
-          item as HTMLSpanElement,
-          {
-            scale: 100,
-            duration: 0.5,
-            ease: "power1.in",
-          },
-          "-=0.2"
-        );
-      }
-      tl.to(".header", { autoAlpha: 1 });
-      tl.to(linkSpanParas, {
-        transform: "translateY(100%)",
-        ease: "linear",
-        duration: 1,
-      });
+      setIsOpen(!isOpen);
     } else {
-      isOpen = false;
+      setIsOpen(!isOpen);
       tl.reverse();
     }
-
-    // tl.reversed(!tl.reversed());
-  };
+    console.log(tl.progress());
+  });
 
   return (
     <>

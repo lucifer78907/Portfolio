@@ -26,11 +26,13 @@ const HeroBreadCrumbs = () => {
   });
 
   useEffect(() => {
-    for (let i = 0; i < allBreadCrumbs.length + 1; i++) {
-      setTimeout(() => {
-        showBreadCrumb();
-      }, i * 1000);
-    }
+    setTimeout(() => {
+      for (let i = 0; i < allBreadCrumbs.length + 1; i++) {
+        setTimeout(() => {
+          showBreadCrumb();
+        }, i * 1000);
+      }
+    }, 5000);
   });
 
   const showBreadCrumb = () => {
