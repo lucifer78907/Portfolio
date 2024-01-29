@@ -5,6 +5,7 @@ import gsap from "gsap";
 import HeroLoader from "../components/Hero/Loader/HeroLoader";
 import HeroNav from "../components/Hero/Navigation/HeroNav";
 import HeroMain from "../components/Hero/HeroMain";
+import { useGSAP } from "@gsap/react";
 
 const HomePage = () => {
   const sectionRef = useRef(null);
@@ -26,7 +27,6 @@ const HomePage = () => {
     const moveCursor = (e: MouseEvent) => {
       const mouseY = e.clientY;
       const mouseX = e.clientX;
-      const tl = gsap.timeline();
 
       gsap.to(circle, { x: mouseX, y: mouseY });
       gsap.to(circle2, { x: mouseX + 10, y: mouseY + 10, delay: 0.1 });
@@ -34,7 +34,11 @@ const HomePage = () => {
     };
 
     window.addEventListener("mousemove", moveCursor);
-  });
+  }, []);
+
+  // Set background gradient
+
+  useGSAP(() => {});
 
   return (
     <LocomotiveScrollProvider containerRef={sectionRef} options={options}>

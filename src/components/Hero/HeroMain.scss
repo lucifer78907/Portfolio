@@ -31,8 +31,8 @@
     flex: 1 0 auto;
 
     &:hover {
-      color: currentColor;
-      background-color: #fafafa;
+      color: var(--color-primary-800);
+      background-color: #fffbeb;
     }
 
     &--icon {
