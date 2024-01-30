@@ -8,15 +8,11 @@
   flex-direction: column;
   align-items: center;
 
-  &--hindi {
-    font-size: 10rem;
-    font-family: var(--font-hindi);
-    font-weight: 700;
-    text-shadow: -4px 1px 0px #fcd34d, -8px 2px 0px #ef4444;
-  }
-
   &--sub {
     position: relative;
     font-size: 12rem;
+    display: flex;
+    align-items: center;
+    gap: 6rem;
   }
 }
