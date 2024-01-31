@@ -17,6 +17,15 @@
     position: relative;
   }
 
+  &__background {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    height: 100vh;
+    width: 100vw;
+    pointer-events: none;
+  }
+
   &__breadcrumb {
     font-size: 2.4rem;
     background-color: red;

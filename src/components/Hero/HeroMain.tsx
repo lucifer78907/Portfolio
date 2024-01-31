@@ -11,19 +11,19 @@ const HeroMain = () => {
   useLayoutEffect(() => {
     let container = document.getElementById("main");
 
-    var text = new Blotter.Text("developer", {
+    var text = new Blotter.Text("Rudra", {
       family: "CarenaRegular",
       size: 150,
       fill: "#059669",
     });
 
-    var text2 = new Blotter.Text("designer", {
+    var text2 = new Blotter.Text("a designer", {
       family: "CarenaRegular",
       size: 150,
       fill: "#059669",
     });
 
-    var text3 = new Blotter.Text("dramatic", {
+    var text3 = new Blotter.Text("a developer", {
       family: "CarenaRegular",
       size: 150,
       fill: "#059669",
@@ -57,20 +57,41 @@ const HeroMain = () => {
     }
 
     // Start the animation with the first text
-    setTimeout(() => {
-      animateText(0);
-    }, 2000);
+    animateText(0);
+
+    // Animation for A
+
+    const container2 = document.querySelector(".hero__background");
+
+    var atext = new Blotter.Text("R", {
+      family: "CarenaRegular",
+      size: 100,
+      fill: "#059669",
+    });
+
+    var material2 = new Blotter.FliesMaterial();
+    material2.uniforms.uPointCellWidth.value = 0.018;
+    material2.uniforms.uPointRadius.value = 0.8;
+
+    var blotter2 = new Blotter(material2, {
+      texts: atext,
+    });
+
+    var scope2 = blotter2.forText(atext);
+    scope2.appendTo(container2);
+
+    // Track mouse movement
+    // Track mouse movement
   }, []);
 
   return (
     <section className="hero__main" ref={scope}>
       <h1 className="heading__primary">
-        I am Rudra
-        <span className="heading__primary--sub" id="main">
-          A
-        </span>
+        I am
+        <span className="heading__primary--sub" id="main"></span>
       </h1>
-      <HeroBreadCrumbs />
+      <div className="hero__background"></div>
+      {/* <HeroBreadCrumbs /> */}
       {/* <span className="hero__circle"></span> */}
     </section>
   );

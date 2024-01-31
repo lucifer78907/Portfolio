@@ -15,7 +15,7 @@ const HomePage = () => {
   };
   // to remove legacy cursor
   useEffect(() => {
-    document.documentElement.style.cursor = "none";
+    // document.documentElement.style.cursor = "none";
   }, []);
 
   // to add custom cursor

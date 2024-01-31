@@ -6,13 +6,16 @@
   color: var(--color-primary-800);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 4rem;
+
+  flex: 1;
 
   &--sub {
     position: relative;
     font-size: 12rem;
+    align-self: flex-end;
     display: flex;
-    align-items: center;
-    gap: 6rem;
   }
 }
