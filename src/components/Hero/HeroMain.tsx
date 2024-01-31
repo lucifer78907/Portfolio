@@ -14,19 +14,19 @@ const HeroMain = () => {
     var text = new Blotter.Text("Rudra", {
       family: "CarenaRegular",
       size: 150,
-      fill: "#059669",
+      fill: "#2563EB",
     });
 
     var text2 = new Blotter.Text("a designer", {
       family: "CarenaRegular",
       size: 150,
-      fill: "#059669",
+      fill: "#2563EB",
     });
 
     var text3 = new Blotter.Text("a developer", {
       family: "CarenaRegular",
       size: 150,
-      fill: "#059669",
+      fill: "#2563EB",
     });
 
     var material = new Blotter.SlidingDoorMaterial();
@@ -66,7 +66,7 @@ const HeroMain = () => {
     var atext = new Blotter.Text("R", {
       family: "CarenaRegular",
       size: 100,
-      fill: "#059669",
+      fill: "#2563EB",
     });
 
     var material2 = new Blotter.FliesMaterial();
