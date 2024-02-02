@@ -26,6 +26,35 @@
     pointer-events: none;
   }
 
+  &__details {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__line {
+    background-color: var(--color-primary-200);
+    width: 5px;
+    border-radius: 40px;
+  }
+
+  &__about {
+    padding-right: 4rem;
+    // border-right: 1px solid var(--color-primary-100);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    &--title {
+      font-size: clamp(3rem, 2rem + 1vw, 4rem);
+      font-family: var(--font-secondary);
+      font-weight: 700;
+    }
+
+    &--subtitle {
+      font-size: clamp(3rem, 2rem + 1vw, 4rem);
+    }
+  }
+
   &__breadcrumb {
     font-size: 2.4rem;
     background-color: red;
