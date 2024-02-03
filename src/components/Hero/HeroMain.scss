@@ -5,7 +5,7 @@
     padding: 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
   }
 
   &__bottom-line {
@@ -40,18 +40,19 @@
 
   &__about {
     padding-right: 4rem;
-    // border-right: 1px solid var(--color-primary-100);
     display: flex;
     flex-direction: column;
     gap: 2rem;
     &--title {
       font-size: clamp(3rem, 2rem + 1vw, 4rem);
       font-family: var(--font-secondary);
-      font-weight: 700;
+      font-weight: 500;
+      letter-spacing: 1px;
     }
 
     &--subtitle {
       font-size: clamp(3rem, 2rem + 1vw, 4rem);
+      letter-spacing: 1px;
     }
   }
 

@@ -1,11 +1,12 @@
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 // Components
 import HeroLoader from "../components/Hero/Loader/HeroLoader";
 import HeroNav from "../components/Hero/Navigation/HeroNav";
 import HeroMain from "../components/Hero/HeroMain";
-import { useGSAP } from "@gsap/react";
+import Skills from "../components/Intro/Skills/Skills";
 
 const HomePage = () => {
   const sectionRef = useRef(null);
@@ -49,6 +50,7 @@ const HomePage = () => {
         {/* <HeroLoader /> */}
         <HeroNav />
         <HeroMain />
+        <Skills />
       </main>
     </LocomotiveScrollProvider>
   );

@@ -4,8 +4,6 @@ import { useGSAP } from "@gsap/react";
 import { useLayoutEffect, useState } from "react";
 import { Flip } from "gsap/all";
 
-// const colors = ["#047857", "#10b981", "#6ee7b7"];
-// const colors = ["#6b21a8", "#a855f7", "#d8b4fe"];
 const colors = ["#1e293b", "#64748b", "#cbd5e1"];
 
 let allHeaderCircles: HTMLSpanElement[];
