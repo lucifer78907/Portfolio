@@ -30,25 +30,26 @@ body {
   border-radius: 50%;
   z-index: 99999;
   position: absolute;
-  mix-blend-mode: multiply;
+  // mix-blend-mode: color;
 }
 
 .cursor {
   width: 60px;
   height: 60px;
-  background-color: var(--color-primary-300);
+  background-color: var(--color-accent-100);
 }
 
 .smaller-circle {
   width: 45px;
   height: 45px;
-  background-color: var(--color-primary-500);
+  background-color: var(--color-accent-200);
 }
 
 .circle {
   width: 30px;
   height: 30px;
-  background-color: var(--color-primary-700);
+  background-color: var(--color-accent-600);
+  z-index: 100000;
 }
 
 // FONTS

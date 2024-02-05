@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import { useLayoutEffect, useState } from "react";
 import { Flip } from "gsap/all";
 
-const colors = ["#1e293b", "#64748b", "#cbd5e1"];
+const colors = ["#bfdbfe", "#60a5fa", "#2563eb"];
 
 let allHeaderCircles: HTMLSpanElement[];
 let linkSpanParas: (HTMLSpanElement | HTMLParagraphElement)[];
@@ -66,6 +66,7 @@ const useNavigationEffect = (): GSAPTimeline => {
     ];
     // Setting circle colors
     allHeaderCircles = gsap.utils.toArray(".header__circle");
+    gsap.set(allHeaderCircles, { scale: 0 });
     let i = 0;
     for (const item of allHeaderCircles) {
       const color = colors[i++];
@@ -98,7 +99,7 @@ const useNavigationEffect = (): GSAPTimeline => {
     // Hamburger Icon
     tl.to(".header__button", { rotate: "45deg" }, "<");
     tl.to(".header__hamburger", {
-      backgroundColor: "var(--color-primary-100)",
+      backgroundColor: "var(--color-accent-600)",
     });
     tl.to(spans[0], { rotate: "-90deg", transformOrigin: "left" }, "<");
     tl.to(
