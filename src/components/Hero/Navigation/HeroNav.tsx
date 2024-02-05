@@ -26,9 +26,14 @@ const HeroNav = () => {
 
   return (
     <>
-      <NavCircles />
-      <NavigationButton handleClick={openMenuHandler} />
-      <Navigation />
+      <header className="nav__header">
+        <div className="nav__icon"></div>
+        <aside>
+          <NavCircles />
+          <NavigationButton handleClick={openMenuHandler} />
+          <Navigation />
+        </aside>
+      </header>
     </>
   );
 };

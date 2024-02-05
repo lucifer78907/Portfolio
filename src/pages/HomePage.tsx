@@ -48,7 +48,6 @@ const HomePage = () => {
       <div className="smaller-circle"></div>
       <main data-scroll-container ref={sectionRef}>
         {/* <HeroLoader /> */}
-        <HeroNav />
         <HeroMain />
         <Skills />
       </main>

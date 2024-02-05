@@ -66,6 +66,12 @@
   justify-items: center;
   align-items: center;
 
+  &__icon {
+    position: absolute;
+    top: 2%;
+    left: 5%;
+  }
+
   &__list {
     list-style: none;
     display: flex;

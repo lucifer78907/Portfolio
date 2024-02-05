@@ -3,12 +3,19 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 // Sass
 import "./App.scss";
+import RootLayout from "./pages/RootLayout";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />,
+      element: <RootLayout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+      ],
     },
   ]);
 

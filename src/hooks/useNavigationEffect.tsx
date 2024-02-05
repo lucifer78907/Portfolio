@@ -32,6 +32,32 @@ const useNavigationEffect = (): GSAPTimeline => {
   };
 
   useLayoutEffect(() => {
+    // Animation for A
+
+    const container2 = document.querySelector(".nav__icon");
+
+    var atext = new Blotter.Text("R", {
+      family: "CarenaRegular",
+      size: 100,
+      fill: "#2563EB",
+    });
+
+    var material2 = new Blotter.FliesMaterial();
+    material2.uniforms.uPointCellWidth.value = 0.018;
+    material2.uniforms.uPointRadius.value = 0.8;
+
+    var blotter2 = new Blotter(material2, {
+      texts: atext,
+    });
+
+    var scope2 = blotter2.forText(atext);
+    scope2.appendTo(container2);
+
+    // Track mouse movement
+    // Track mouse movement
+  }, []);
+
+  useLayoutEffect(() => {
     gsap.set(".header", { autoAlpha: 0 });
 
     linkSpanParas = [
