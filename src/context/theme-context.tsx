@@ -4,7 +4,7 @@ interface themeContextProviderProps {
   children: React.ReactNode;
 }
 
-type themeContextType = {
+export type themeContextType = {
   themeColor: string;
   setThemeColor: (theme: string) => void;
 };

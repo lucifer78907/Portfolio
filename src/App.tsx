@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import gsap from "gsap";
 // Pages
 import HomePage from "./pages/HomePage";
@@ -9,10 +9,12 @@ import RootLayout from "./pages/RootLayout";
 // Components
 import Cursor from "./components/Cursor/Cursor";
 // Provider
-import { ThemeContextProvider } from "./context/theme-context";
 import themeContext from "./context/theme-context";
+// Types
+import { themeContextType } from "./context/theme-context";
 
 const App = () => {
+  const ctx = useContext<themeContextType | null>(themeContext);
   // to remove legacy cursor
   useEffect(() => {
     // document.documentElement.style.cursor = "none";
@@ -49,12 +51,20 @@ const App = () => {
     },
   ]);
 
+  useEffect(() => {
+    if (ctx?.themeColor === "dark") {
+      document.body.classList.remove("light");
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+      document.body.classList.add("light");
+    }
+  }, [ctx?.themeColor]);
+
   return (
     <>
-      <ThemeContextProvider>
-        <Cursor />
-        <RouterProvider router={router}></RouterProvider>;
-      </ThemeContextProvider>
+      <Cursor />
+      <RouterProvider router={router}></RouterProvider>;
     </>
   );
 };
