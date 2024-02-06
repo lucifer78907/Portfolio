@@ -1,11 +1,41 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect } from "react";
+import gsap from "gsap";
 // Pages
 import HomePage from "./pages/HomePage";
 // Sass
 import "./App.scss";
 import RootLayout from "./pages/RootLayout";
+// Components
+import Cursor from "./components/Cursor/Cursor";
+// Provider
+import { ThemeContextProvider } from "./context/theme-context";
+import themeContext from "./context/theme-context";
 
 const App = () => {
+  // to remove legacy cursor
+  useEffect(() => {
+    // document.documentElement.style.cursor = "none";
+  }, []);
+
+  // to add custom cursor
+  useEffect(() => {
+    const cursor = document.querySelector(".cursor") as HTMLDivElement;
+    const circle = document.querySelector(".circle") as HTMLDivElement;
+    const circle2 = document.querySelector(".smaller-circle") as HTMLDivElement;
+
+    const moveCursor = (e: MouseEvent) => {
+      const mouseY = e.clientY;
+      const mouseX = e.clientX;
+
+      gsap.to(circle, { x: mouseX, y: mouseY });
+      gsap.to(circle2, { x: mouseX + 10, y: mouseY + 10, delay: 0.1 });
+      gsap.to(cursor, { x: mouseX + 25, y: mouseY + 25, delay: 0.2 });
+    };
+
+    window.addEventListener("mousemove", moveCursor);
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -19,7 +49,14 @@ const App = () => {
     },
   ]);
 
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <>
+      <ThemeContextProvider>
+        <Cursor />
+        <RouterProvider router={router}></RouterProvider>;
+      </ThemeContextProvider>
+    </>
+  );
 };
 
 export default App;
