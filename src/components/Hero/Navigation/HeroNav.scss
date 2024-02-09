@@ -71,6 +71,14 @@
     left: 5%;
   }
 
+  &__btn {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+
   &__list {
     list-style: none;
     display: flex;

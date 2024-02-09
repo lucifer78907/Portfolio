@@ -40,7 +40,6 @@ const useBlotterEffect = () => {
       scope.appendTo(container);
 
       setTimeout(function () {
-        console.log("Hello from index", index);
         // Remove the current text from the DOM
         container?.removeChild(container.lastChild);
 

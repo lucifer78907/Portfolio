@@ -10,13 +10,14 @@
   &__bar {
     width: 15vw;
     height: 105vh;
-    background-color: #333333;
+    background-color: var(--color-bg);
   }
 
   &__counter {
     font-family: CarenaRegular, sans-serif;
-    color: #fefefe;
+    color: var(--color-text);
     position: fixed;
+    z-index: 100000;
     font-size: 20rem;
     bottom: 10%;
     right: 10%;
