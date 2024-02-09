@@ -1,11 +1,14 @@
 import "./HeroMain.scss";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import ScrollTrigger from "gsap/src/ScrollTrigger";
 import useBlotterEffect from "../../hooks/useBlotterEffect";
 import HeroDetails from "./HeroDetails";
+import themeContext from "../../context/theme-context";
 
 const HeroMain = () => {
+  const themeCtx = useContext(themeContext);
+  // console.log(themeCtx?.themeColor);
   gsap.registerPlugin(ScrollTrigger);
   const scope = useRef<HTMLElement>(null);
 

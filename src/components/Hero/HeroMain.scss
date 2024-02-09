@@ -33,7 +33,7 @@
   }
 
   &__line {
-    background-color: var(--color-primary-200);
+    background-color: var(--color-text);
     width: 5px;
     border-radius: 40px;
   }
@@ -140,17 +140,5 @@
       background-color: #f5d0fe;
       color: #c026d3;
     }
-  }
-
-  &__circle {
-    position: absolute;
-    min-width: 20rem;
-    min-height: 20rem;
-    border-radius: 50%;
-    background-image: linear-gradient(
-      to right,
-      var(--color-primary-800),
-      var(--color-primary-400)
-    );
   }
 }

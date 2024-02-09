@@ -1,9 +1,19 @@
 .light {
   --color-bg: #e2e8f0;
   --color-text: #171717;
+
+  // Nav Colors
+  --hamburger-border: #172554;
+  --hamburger-btn: #171717;
+  --hamburger-before-after: #404040;
 }
 
 .dark {
   --color-text: #e2e8f0;
   --color-bg: #171717;
+
+  // Nav Color
+  --hamburger-border: #bfdbfe;
+  --hamburger-btn: #eff6ff;
+  --hamburger-before-after: #dbeafe;
 }

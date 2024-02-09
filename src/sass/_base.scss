@@ -18,7 +18,7 @@ body {
   font-family: sans-serif;
   font-weight: 400;
   line-height: 1;
-  background-color: #171717;
+  background-color: var(--color-bg);
   font-family: var(--font-secondary);
 }
 
@@ -29,7 +29,7 @@ body {
   border-radius: 50%;
   z-index: 99999;
   position: absolute;
-  // mix-blend-mode: color;
+  box-shadow: var(--box-shadow-light);
 }
 
 .cursor {

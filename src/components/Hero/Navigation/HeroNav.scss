@@ -5,7 +5,7 @@
     border-radius: 50%;
     // background-color: var(--color-accent-300);
     background-color: transparent;
-    border: 2px solid var(--color-accent-200);
+    border: 2px solid var(--hamburger-border);
     position: absolute;
     right: 5%;
     top: 5%;
@@ -19,7 +19,7 @@
     width: 50%;
     height: 4px;
     border-radius: 40px;
-    background-color: var(--color-accent-50);
+    background-color: var(--hamburger-btn);
     position: relative;
     z-index: 101;
 
@@ -29,7 +29,7 @@
       position: absolute;
       width: 40%;
       height: 4px;
-      background-color: var(--color-accent-100);
+      background-color: var(--hamburger-before-after);
       border-radius: 40px;
     }
 
