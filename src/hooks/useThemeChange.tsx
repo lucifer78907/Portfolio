@@ -8,23 +8,35 @@ const useThemeChange = () => {
   );
 
   useGSAP(() => {
-    const color = gsap.getProperty(".nav__btn--circle", "backgroundColor");
-    const light = "rgb(226, 232, 240)";
-    const dark = "rgb(23, 23, 23)";
-    console.log(color, color === light);
     tl.set(".hero__main", { opacity: 0 });
-    tl.set(".nav__btn--circle", {
-      backgroundColor: `${color === light ? dark : light}`,
-    });
-    tl.to(".nav__btn--circle", {
-      scale: 150,
-      ease: "power2.out",
-      duration: 1.5,
+    tl.to(".nav__btn", {
+      top: "50%",
+      transform: "translate(-50%,-50%)",
+      scale: 5,
+      rotate: 360,
     });
     tl.to(
       ".nav__btn--circle",
       {
-        opacity: 0,
+        scale: 150,
+        ease: "power2.out",
+        duration: 1.5,
+        backgroundColor: "#2563eb",
+        onComplete: () => {
+          gsap.set(".nav__btn", {
+            top: "5%",
+            transform: "none",
+            scale: 1,
+            rotate: 0,
+          });
+        },
+      },
+      "<"
+    );
+    tl.to(
+      ".nav__btn--circle",
+      {
+        autoAlpha: 0,
       },
       "+=0.1"
     );
@@ -35,8 +47,7 @@ const useThemeChange = () => {
       },
       "+=0.2"
     );
-    setTimeline(tl);
-  }, null);
+  });
 
   return tl;
 };

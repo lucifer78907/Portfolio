@@ -14,7 +14,7 @@ const themeContext = createContext<themeContextType | null>(null);
 export const ThemeContextProvider = ({
   children,
 }: themeContextProviderProps) => {
-  const [currTheme, setCurrTheme] = useState<string>("light");
+  const [currTheme, setCurrTheme] = useState<string>("dark");
 
   return (
     <themeContext.Provider

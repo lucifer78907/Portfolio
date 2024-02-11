@@ -73,10 +73,22 @@
 
   &__btn {
     position: absolute;
-    top: 8%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 200;
+
+    border: none;
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 2rem;
+
+    &--icon {
+      width: 4em;
+      height: 4em;
+      fill: var(--color-accent-600);
+    }
 
     &--circle {
       position: absolute;
@@ -86,7 +98,6 @@
       border-radius: 50%;
       top: 0;
       left: 50%;
-      background-color: var(--color-text);
       transform: translateX(-50%);
       z-index: -10;
     }
